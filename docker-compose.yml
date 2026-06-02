@@ -13,6 +13,14 @@ services:
     volumes:
       - volume_postgres:/var/lib/postgresql/data
 
+  service_redis:
+    image: redis:7-alpine
+    container_name: container_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - volume_redis:/data
+
   service_pgadmin:
     image: dpage/pgadmin4:6.11
     container_name: container_pgadmin
@@ -31,4 +39,6 @@ volumes:
     name: vpg
   volume_pgadmin:
     name: vpga
+  volume_redis:
+    name: vredis
 
